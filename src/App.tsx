@@ -15,7 +15,7 @@ export interface GeoApiResponse {
     timezone: string;
     geonameId: number;
   };
-  domains: string[];
+  domains?: string[];
   as: {
     asn: number;
     name: string;
@@ -26,9 +26,31 @@ export interface GeoApiResponse {
   isp: string;
 }
 
+const initialData = {
+  ip: "192.212.174.101",
+  location: {
+    country: "US",
+    region: "California",
+    city: "South San Gabriel",
+    lat: 34.04915,
+    lng: -118.09462,
+    postalCode: "",
+    timezone: "-08:00",
+    geonameId: 5397771,
+  },
+  as: {
+    asn: 7127,
+    name: "SCE",
+    route: "192.212.0.0/15",
+    domain: "",
+    type: "",
+  },
+  isp: "Southern California Edison",
+};
+
 function App() {
   const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [geoData, setGeoData] = useState<GeoApiResponse | null>(null);
+  const [geoData, setGeoData] = useState<GeoApiResponse | null>(initialData);
 
   const handleSearchingState = (searching: boolean) => {
     setIsSearching(searching);

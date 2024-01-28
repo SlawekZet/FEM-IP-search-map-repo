@@ -12,7 +12,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   onIpGeoDataChange,
 }) => {
   const [input, setInput] = useState<string>("");
-  const [searchItem, setSearchItem] = useState<string>("192.212.174.101");
+  const [searchItem, setSearchItem] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [inputType, setInputType] = useState<string>("");
 
